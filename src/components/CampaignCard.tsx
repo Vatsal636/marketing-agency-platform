@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { Campaign, Task } from '@/types';
-import { formatDate, daysUntilDeadline, calculateProgress, getCampaignTypeColor, getCampaignTypeIcon } from '@/lib/utils';
+import { daysUntilDeadline, calculateProgress, getCampaignTypeColor, getCampaignTypeIcon } from '@/lib/utils';
 import StatusBadge from './StatusBadge';
 import ProgressBar from './ProgressBar';
 

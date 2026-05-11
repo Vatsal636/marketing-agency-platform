@@ -23,6 +23,7 @@ export default function TaskModal({ isOpen, onClose, onSave, existingTask, campa
 
   useEffect(() => {
     if (existingTask) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setTitle(existingTask.title);
       setAssignee(existingTask.assignee);
       setDueDate(existingTask.dueDate);

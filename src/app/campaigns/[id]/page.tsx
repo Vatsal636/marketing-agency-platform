@@ -16,7 +16,7 @@ export default function CampaignDetailPage() {
   const params = useParams();
   const campaignId = params.id as string;
 
-  const [campaigns, setCampaigns] = useLocalStorage<Campaign[]>('campaigns', seedCampaigns);
+  const [campaigns] = useLocalStorage<Campaign[]>('campaigns', seedCampaigns);
   const [tasks, setTasks] = useLocalStorage<Task[]>('tasks', seedTasks);
   const [teamMembers] = useLocalStorage<TeamMember[]>('teamMembers', seedTeamMembers);
 
@@ -35,6 +35,15 @@ export default function CampaignDetailPage() {
 
   const allCampaignTasks = tasks.filter(t => t.campaignId === campaignId);
   const progress = calculateProgress(allCampaignTasks);
+
+  // Task status counts for the filter bar
+  const statusCounts = useMemo(() => ({
+    all: allCampaignTasks.length,
+    todo: allCampaignTasks.filter(t => t.status === 'To Do').length,
+    inProgress: allCampaignTasks.filter(t => t.status === 'In Progress').length,
+    review: allCampaignTasks.filter(t => t.status === 'Review').length,
+    done: allCampaignTasks.filter(t => t.status === 'Done').length,
+  }), [allCampaignTasks]);
 
   if (!campaign) {
     return (
@@ -72,15 +81,6 @@ export default function CampaignDetailPage() {
     setEditingTask(task);
     setIsModalOpen(true);
   };
-
-  // Task status counts for the filter bar
-  const statusCounts = useMemo(() => ({
-    all: allCampaignTasks.length,
-    todo: allCampaignTasks.filter(t => t.status === 'To Do').length,
-    inProgress: allCampaignTasks.filter(t => t.status === 'In Progress').length,
-    review: allCampaignTasks.filter(t => t.status === 'Review').length,
-    done: allCampaignTasks.filter(t => t.status === 'Done').length,
-  }), [allCampaignTasks]);
 
   return (
     <div className="animate-fade-in">

@@ -2,8 +2,8 @@
 
 import { useMemo } from 'react';
 import { useLocalStorage } from '@/hooks/useLocalStorage';
-import { seedCampaigns, seedTasks, seedTeamMembers } from '@/data/seed';
-import { Campaign, Task, TeamMember } from '@/types';
+import { seedTasks, seedTeamMembers } from '@/data/seed';
+import { Task, TeamMember } from '@/types';
 import WorkloadBar from '@/components/WorkloadBar';
 
 export default function WorkloadPage() {

@@ -2,7 +2,6 @@
 
 import { Task, TeamMember } from '@/types';
 import { formatDate, getPriorityColor } from '@/lib/utils';
-import StatusBadge from './StatusBadge';
 
 interface TaskTableProps {
   tasks: Task[];

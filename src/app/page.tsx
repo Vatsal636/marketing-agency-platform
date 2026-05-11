@@ -5,15 +5,21 @@ import { useLocalStorage } from '@/hooks/useLocalStorage';
 import { seedCampaigns, seedTasks, seedTeamMembers } from '@/data/seed';
 import { Campaign, Task, TeamMember, CampaignStatus, CampaignType } from '@/types';
 import CampaignCard from '@/components/CampaignCard';
+import CampaignModal from '@/components/CampaignModal';
 
 export default function CampaignsDashboard() {
-  const [campaigns] = useLocalStorage<Campaign[]>('campaigns', seedCampaigns);
+  const [campaigns, setCampaigns] = useLocalStorage<Campaign[]>('campaigns', seedCampaigns);
   const [tasks] = useLocalStorage<Task[]>('tasks', seedTasks);
   const [teamMembers] = useLocalStorage<TeamMember[]>('teamMembers', seedTeamMembers);
 
   const [statusFilter, setStatusFilter] = useState<CampaignStatus | 'All'>('All');
   const [typeFilter, setTypeFilter] = useState<CampaignType | 'All'>('All');
   const [searchQuery, setSearchQuery] = useState('');
+  const [isCampaignModalOpen, setIsCampaignModalOpen] = useState(false);
+
+  const handleSaveCampaign = (newCampaign: Campaign) => {
+    setCampaigns(prev => [newCampaign, ...prev]);
+  };
 
   const filteredCampaigns = useMemo(() => {
     return campaigns.filter(c => {
@@ -39,9 +45,17 @@ export default function CampaignsDashboard() {
   return (
     <div className="animate-fade-in">
       {/* Header */}
-      <div className="mb-8">
-        <h1 className="text-2xl font-bold text-text-primary mb-1">Campaign Dashboard</h1>
-        <p className="text-sm text-text-secondary">Track and manage all active marketing campaigns</p>
+      <div className="mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div>
+          <h1 className="text-2xl font-bold text-text-primary mb-1">Campaign Dashboard</h1>
+          <p className="text-sm text-text-secondary">Track and manage all active marketing campaigns</p>
+        </div>
+        <button
+          onClick={() => setIsCampaignModalOpen(true)}
+          className="px-4 py-2 text-sm font-medium text-white bg-accent hover:bg-accent-hover rounded-lg transition-colors flex items-center gap-2"
+        >
+          <span>+</span> New Campaign
+        </button>
       </div>
 
       {/* Stats row */}
@@ -119,6 +133,14 @@ export default function CampaignsDashboard() {
           ))}
         </div>
       )}
+
+      {/* Campaign Modal */}
+      <CampaignModal
+        isOpen={isCampaignModalOpen}
+        onClose={() => setIsCampaignModalOpen(false)}
+        onSave={handleSaveCampaign}
+        teamMembers={teamMembers}
+      />
     </div>
   );
 }

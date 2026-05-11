@@ -1,4 +1,4 @@
-import { Task, Campaign, CampaignStatus, TaskStatus, TaskPriority, CampaignType } from '@/types';
+import { Task, CampaignStatus, TaskStatus, TaskPriority, CampaignType } from '@/types';
 
 // Generate a simple unique ID
 export function generateId(): string {

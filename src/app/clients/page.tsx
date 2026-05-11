@@ -5,7 +5,6 @@ import { useLocalStorage } from '@/hooks/useLocalStorage';
 import { seedCampaigns, seedTasks, seedTeamMembers } from '@/data/seed';
 import { Campaign, Task, TeamMember } from '@/types';
 import { formatDate, calculateProgress, getCampaignTypeIcon } from '@/lib/utils';
-import StatusBadge from '@/components/StatusBadge';
 import ProgressBar from '@/components/ProgressBar';
 
 export default function ClientDashboard() {
