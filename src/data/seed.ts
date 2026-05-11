@@ -1,0 +1,172 @@
+import { Campaign, Task, TeamMember } from '@/types';
+
+export const seedTeamMembers: TeamMember[] = [
+  { id: 'tm-1', name: 'Sarah Chen', role: 'SEO Strategist', avatar: '🎯', maxCapacity: 5 },
+  { id: 'tm-2', name: 'Marcus Williams', role: 'Content Writer', avatar: '✍️', maxCapacity: 6 },
+  { id: 'tm-3', name: 'Jessica Park', role: 'Social Media Manager', avatar: '📱', maxCapacity: 5 },
+  { id: 'tm-4', name: 'David Kumar', role: 'PPC Specialist', avatar: '💰', maxCapacity: 4 },
+  { id: 'tm-5', name: 'Emily Rodriguez', role: 'Graphic Designer', avatar: '🎨', maxCapacity: 5 },
+  { id: 'tm-6', name: 'Alex Thompson', role: 'Account Manager', avatar: '🤝', maxCapacity: 6 },
+  { id: 'tm-7', name: 'Nina Patel', role: 'Video Producer', avatar: '🎬', maxCapacity: 3 },
+  { id: 'tm-8', name: 'James O\'Brien', role: 'Web Developer', avatar: '💻', maxCapacity: 4 },
+  { id: 'tm-9', name: 'Olivia Martinez', role: 'Analytics Lead', avatar: '📊', maxCapacity: 5 },
+  { id: 'tm-10', name: 'Ryan Foster', role: 'Copywriter', avatar: '📝', maxCapacity: 6 },
+];
+
+export const seedCampaigns: Campaign[] = [
+  {
+    id: 'c-1',
+    name: 'TechNova Product Launch',
+    clientName: 'TechNova Inc.',
+    type: 'Content Marketing',
+    owner: 'tm-6',
+    deadline: '2026-06-15',
+    status: 'In Progress',
+    description: 'Full-scale content marketing campaign for TechNova\'s new SaaS product launch including blog series, whitepapers, and email nurture sequences.',
+    deliverables: ['Blog series (8 posts)', 'Product whitepaper', 'Email nurture sequence (12 emails)', 'Landing page copy', 'Press release'],
+    startDate: '2026-04-01',
+    budget: '$45,000',
+  },
+  {
+    id: 'c-2',
+    name: 'GreenLeaf SEO Overhaul',
+    clientName: 'GreenLeaf Organics',
+    type: 'SEO',
+    owner: 'tm-1',
+    deadline: '2026-07-30',
+    status: 'In Progress',
+    description: 'Comprehensive SEO audit and optimization for GreenLeaf Organics\' e-commerce website targeting organic food keywords.',
+    deliverables: ['SEO audit report', 'Keyword strategy doc', '50 optimized product pages', 'Technical SEO fixes', 'Monthly rank tracking'],
+    startDate: '2026-03-15',
+    budget: '$32,000',
+  },
+  {
+    id: 'c-3',
+    name: 'UrbanFit Social Blitz',
+    clientName: 'UrbanFit Athletics',
+    type: 'Social Media',
+    owner: 'tm-3',
+    deadline: '2026-05-30',
+    status: 'Review',
+    description: 'High-energy social media campaign across Instagram, TikTok, and Twitter for UrbanFit\'s summer collection launch.',
+    deliverables: ['30 social posts', '10 Reels/TikToks', 'Influencer partnerships (5)', 'Social media calendar', 'Engagement report'],
+    startDate: '2026-04-10',
+    budget: '$28,000',
+  },
+  {
+    id: 'c-4',
+    name: 'CloudStack PPC Sprint',
+    clientName: 'CloudStack Solutions',
+    type: 'Paid Ads',
+    owner: 'tm-4',
+    deadline: '2026-06-01',
+    status: 'In Progress',
+    description: 'Aggressive Google Ads and LinkedIn Ads campaign to drive enterprise demo signups for CloudStack\'s cloud infrastructure platform.',
+    deliverables: ['Google Ads campaign (20 ad groups)', 'LinkedIn Ads (10 campaigns)', 'Landing pages (5)', 'A/B test results', 'Weekly performance reports'],
+    startDate: '2026-04-15',
+    budget: '$65,000',
+  },
+  {
+    id: 'c-5',
+    name: 'Bloom Beauty Rebrand',
+    clientName: 'Bloom Beauty Co.',
+    type: 'Content Marketing',
+    owner: 'tm-6',
+    deadline: '2026-08-15',
+    status: 'Planning',
+    description: 'Complete brand refresh and content strategy for Bloom Beauty\'s repositioning from budget to premium skincare.',
+    deliverables: ['Brand guidelines update', 'Website copy refresh', 'Product photography direction', 'Social media style guide', 'Launch campaign brief'],
+    startDate: '2026-05-01',
+    budget: '$52,000',
+  },
+  {
+    id: 'c-6',
+    name: 'MetroEats Local SEO',
+    clientName: 'MetroEats Restaurant Group',
+    type: 'SEO',
+    owner: 'tm-1',
+    deadline: '2026-06-30',
+    status: 'In Progress',
+    description: 'Local SEO optimization for MetroEats\' 12 restaurant locations across the metro area.',
+    deliverables: ['Google Business Profile optimization (12)', 'Local citation building', 'Review management strategy', 'Location page optimization', 'Monthly local ranking reports'],
+    startDate: '2026-03-01',
+    budget: '$24,000',
+  },
+  {
+    id: 'c-7',
+    name: 'FitPro Summer Ads',
+    clientName: 'FitPro Supplements',
+    type: 'Paid Ads',
+    owner: 'tm-4',
+    deadline: '2026-05-25',
+    status: 'Delivered',
+    description: 'Facebook and Instagram ad campaign for FitPro\'s summer supplement sale event.',
+    deliverables: ['Ad creative suite (20 variants)', 'Audience targeting strategy', 'Landing page', 'Campaign report', 'ROAS analysis'],
+    startDate: '2026-03-20',
+    budget: '$35,000',
+  },
+  {
+    id: 'c-8',
+    name: 'Wanderlust Travel Content',
+    clientName: 'Wanderlust Travel Co.',
+    type: 'Social Media',
+    owner: 'tm-3',
+    deadline: '2026-07-15',
+    status: 'Planning',
+    description: 'Year-long social media content strategy and execution for Wanderlust Travel\'s destination marketing initiative.',
+    deliverables: ['Content calendar (6 months)', 'Destination guides (12)', 'UGC campaign framework', 'Influencer partnership plan', 'Social analytics dashboard'],
+    startDate: '2026-05-15',
+    budget: '$40,000',
+  },
+];
+
+export const seedTasks: Task[] = [
+  // TechNova Product Launch (c-1)
+  { id: 't-1', campaignId: 'c-1', title: 'Draft product launch blog post #1', assignee: 'tm-2', dueDate: '2026-05-20', priority: 'High', status: 'Done' },
+  { id: 't-2', campaignId: 'c-1', title: 'Create email nurture sequence outline', assignee: 'tm-10', dueDate: '2026-05-25', priority: 'High', status: 'In Progress' },
+  { id: 't-3', campaignId: 'c-1', title: 'Design landing page mockup', assignee: 'tm-5', dueDate: '2026-05-28', priority: 'Medium', status: 'In Progress' },
+  { id: 't-4', campaignId: 'c-1', title: 'Write whitepaper draft', assignee: 'tm-2', dueDate: '2026-06-05', priority: 'High', status: 'To Do' },
+  { id: 't-5', campaignId: 'c-1', title: 'Draft press release', assignee: 'tm-10', dueDate: '2026-06-10', priority: 'Medium', status: 'To Do' },
+
+  // GreenLeaf SEO (c-2)
+  { id: 't-6', campaignId: 'c-2', title: 'Complete technical SEO audit', assignee: 'tm-1', dueDate: '2026-05-15', priority: 'Urgent', status: 'Done' },
+  { id: 't-7', campaignId: 'c-2', title: 'Build keyword strategy document', assignee: 'tm-1', dueDate: '2026-05-22', priority: 'High', status: 'Done' },
+  { id: 't-8', campaignId: 'c-2', title: 'Optimize first batch of product pages (15)', assignee: 'tm-8', dueDate: '2026-06-01', priority: 'High', status: 'In Progress' },
+  { id: 't-9', campaignId: 'c-2', title: 'Fix site speed issues', assignee: 'tm-8', dueDate: '2026-06-10', priority: 'Medium', status: 'To Do' },
+  { id: 't-10', campaignId: 'c-2', title: 'Set up rank tracking dashboard', assignee: 'tm-9', dueDate: '2026-06-15', priority: 'Medium', status: 'In Progress' },
+
+  // UrbanFit Social Blitz (c-3)
+  { id: 't-11', campaignId: 'c-3', title: 'Create social media content calendar', assignee: 'tm-3', dueDate: '2026-05-01', priority: 'High', status: 'Done' },
+  { id: 't-12', campaignId: 'c-3', title: 'Shoot product Reels (5)', assignee: 'tm-7', dueDate: '2026-05-10', priority: 'High', status: 'Done' },
+  { id: 't-13', campaignId: 'c-3', title: 'Design social post templates', assignee: 'tm-5', dueDate: '2026-05-08', priority: 'Medium', status: 'Done' },
+  { id: 't-14', campaignId: 'c-3', title: 'Finalize influencer partnerships', assignee: 'tm-3', dueDate: '2026-05-15', priority: 'High', status: 'Review' },
+  { id: 't-15', campaignId: 'c-3', title: 'Compile engagement analytics report', assignee: 'tm-9', dueDate: '2026-05-28', priority: 'Medium', status: 'To Do' },
+
+  // CloudStack PPC (c-4)
+  { id: 't-16', campaignId: 'c-4', title: 'Set up Google Ads campaign structure', assignee: 'tm-4', dueDate: '2026-05-01', priority: 'Urgent', status: 'Done' },
+  { id: 't-17', campaignId: 'c-4', title: 'Create LinkedIn ad copy variations', assignee: 'tm-10', dueDate: '2026-05-10', priority: 'High', status: 'In Progress' },
+  { id: 't-18', campaignId: 'c-4', title: 'Build PPC landing pages', assignee: 'tm-8', dueDate: '2026-05-18', priority: 'High', status: 'In Progress' },
+  { id: 't-19', campaignId: 'c-4', title: 'Design ad creative suite', assignee: 'tm-5', dueDate: '2026-05-15', priority: 'High', status: 'Review' },
+  { id: 't-20', campaignId: 'c-4', title: 'Set up conversion tracking', assignee: 'tm-9', dueDate: '2026-05-20', priority: 'Urgent', status: 'In Progress' },
+
+  // Bloom Beauty Rebrand (c-5)
+  { id: 't-21', campaignId: 'c-5', title: 'Research competitor brand positioning', assignee: 'tm-6', dueDate: '2026-05-20', priority: 'High', status: 'In Progress' },
+  { id: 't-22', campaignId: 'c-5', title: 'Draft brand voice guidelines', assignee: 'tm-2', dueDate: '2026-06-01', priority: 'Medium', status: 'To Do' },
+  { id: 't-23', campaignId: 'c-5', title: 'Create mood board for visual direction', assignee: 'tm-5', dueDate: '2026-05-25', priority: 'Medium', status: 'To Do' },
+
+  // MetroEats Local SEO (c-6)
+  { id: 't-24', campaignId: 'c-6', title: 'Audit all 12 Google Business Profiles', assignee: 'tm-1', dueDate: '2026-05-10', priority: 'High', status: 'Done' },
+  { id: 't-25', campaignId: 'c-6', title: 'Build local citation list', assignee: 'tm-9', dueDate: '2026-05-20', priority: 'Medium', status: 'In Progress' },
+  { id: 't-26', campaignId: 'c-6', title: 'Write location-specific page content', assignee: 'tm-2', dueDate: '2026-06-01', priority: 'High', status: 'To Do' },
+  { id: 't-27', campaignId: 'c-6', title: 'Implement review response strategy', assignee: 'tm-6', dueDate: '2026-06-15', priority: 'Medium', status: 'To Do' },
+
+  // FitPro Summer Ads (c-7) — Delivered
+  { id: 't-28', campaignId: 'c-7', title: 'Design ad creative suite', assignee: 'tm-5', dueDate: '2026-04-15', priority: 'High', status: 'Done' },
+  { id: 't-29', campaignId: 'c-7', title: 'Build and launch Facebook campaigns', assignee: 'tm-4', dueDate: '2026-04-20', priority: 'High', status: 'Done' },
+  { id: 't-30', campaignId: 'c-7', title: 'Create ROAS analysis report', assignee: 'tm-9', dueDate: '2026-05-10', priority: 'Medium', status: 'Done' },
+
+  // Wanderlust Travel Content (c-8)
+  { id: 't-31', campaignId: 'c-8', title: 'Develop 6-month content calendar', assignee: 'tm-3', dueDate: '2026-06-01', priority: 'High', status: 'To Do' },
+  { id: 't-32', campaignId: 'c-8', title: 'Write first 3 destination guides', assignee: 'tm-2', dueDate: '2026-06-15', priority: 'Medium', status: 'To Do' },
+  { id: 't-33', campaignId: 'c-8', title: 'Design UGC campaign framework', assignee: 'tm-3', dueDate: '2026-06-10', priority: 'Medium', status: 'To Do' },
+];
